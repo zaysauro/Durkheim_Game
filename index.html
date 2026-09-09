@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Placas, Regras e Sociedade — Durkheim</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span>🚦</span> Placas & Sociedade</div>
+  <div class="progress-wrap"><span id="stageLabel">Introdução</span><div class="progress"><i id="globalProgress"></i></div></div>
+</header>
+
+<main>
+<section id="intro" class="screen active">
+  <div class="hero">
+    <div class="eyebrow">MINIGAME DIDÁTICO</div>
+    <h1>Você consegue dirigir no Japão sem conhecer as regras?</h1>
+    <p class="lead">Aprenda algumas placas japonesas, teste sua memória e depois coloque esse conhecimento em prática dirigindo por uma pequena cidade.</p>
+    <div class="concept-card">
+      <strong>A ideia</strong>
+      <p>Uma regra social pode parecer apenas um símbolo até que você precise usá-la para decidir o que fazer. É essa passagem do <em>aprender</em> para o <em>agir</em> que o jogo vai explorar.</p>
+    </div>
+    <button class="primary" onclick="startFlashcards()">Começar desafio →</button>
+  </div>
+  <div class="durkheim-note">
+    <span>ÉMILE DURKHEIM</span>
+    <p>O jogo usa placas de trânsito como uma situação cotidiana para discutir <b>fatos sociais</b>: maneiras de agir e regras que existem para além da vontade individual e orientam o comportamento.</p>
+  </div>
+</section>
+
+<section id="flashcards" class="screen">
+  <div class="section-head">
+    <div><div class="eyebrow">FASE 1 · APRENDIZADO</div><h2>Que placa é essa?</h2></div>
+    <div class="counter"><span id="cardNum">1</span> / <span id="cardTotal">10</span></div>
+  </div>
+  <p class="hint">Observe a placa. Pense no significado antes de virar a carta.</p>
+  <div class="flash-wrap">
+    <button class="flashcard" id="flashcard" onclick="flipCard()" aria-label="Virar flashcard">
+      <div class="face front">
+        <div class="jp-small">JAPÃO · SINALIZAÇÃO</div>
+        <div class="sign" id="signFront"></div>
+        <strong>O que você acha que significa?</strong>
+        <span class="tap">Clique para virar</span>
+      </div>
+      <div class="face back">
+        <div class="jp-small">RESPOSTA</div>
+        <div class="sign mini" id="signBack"></div>
+        <h3 id="answerTitle"></h3>
+        <p id="answerText"></p>
+        <div class="jp" id="answerJP"></div>
+      </div>
+    </button>
+  </div>
+  <div class="controls"><button class="secondary" id="nextCard" onclick="nextCard()" disabled>Próxima placa →</button></div>
+</section>
+
+<section id="memory" class="screen">
+  <div class="section-head">
+    <div><div class="eyebrow">FASE 2 · MEMÓRIA</div><h2>Você lembra das placas?</h2></div>
+    <div class="counter"><span id="memoryNum">1</span> / 5</div>
+  </div>
+  <p class="hint">Agora as placas aparecem sem explicação. Escolha o significado correto.</p>
+  <div class="quiz-card">
+    <div class="sign quiz-sign" id="quizSign"></div>
+    <div id="quizOptions" class="options"></div>
+    <div id="quizFeedback" class="feedback"></div>
+  </div>
+</section>
+
+<section id="drive" class="screen">
+  <div class="section-head">
+    <div><div class="eyebrow">FASE 3 · APLICAÇÃO</div><h2>Agora dirija.</h2></div>
+    <div class="drive-stats"><span>✓ <b id="driveGood">0</b></span><span>✕ <b id="driveBad">0</b></span></div>
+  </div>
+  <div class="mission">🎯 <b>Missão:</b> saia do aeroporto ✈️ e chegue à farmácia 💊. Use as placas que você acabou de estudar.</div>
+  <div class="game-shell">
+    <canvas id="game" width="900" height="560"></canvas>
+    <div class="touch-controls">
+      <button data-key="ArrowUp">▲</button>
+      <div><button data-key="ArrowLeft">◀</button><button data-key="ArrowDown">▼</button><button data-key="ArrowRight">▶</button></div>
+    </div>
+  </div>
+  <p class="game-help">Use <b>WASD</b> ou as <b>setas</b>. Passe pelas interseções e escolha caminhos observando as placas.</p>
+  <div id="driveMessage" class="drive-message"></div>
+</section>
+
+<section id="result" class="screen">
+  <div class="result-card">
+    <div class="eyebrow">DESAFIO CONCLUÍDO</div>
+    <h1>Você transformou uma regra em ação.</h1>
+    <div class="score-grid">
+      <div><b id="finalMemory">0/5</b><span>memória</span></div>
+      <div><b id="finalDrive">0</b><span>decisões corretas</span></div>
+      <div><b id="finalErrors">0</b><span>erros no percurso</span></div>
+    </div>
+    <div class="reflection">
+      <h3>E o que isso tem a ver com Durkheim?</h3>
+      <p>Você primeiro aprendeu significados compartilhados socialmente. Depois, diante de uma situação prática, precisou orientar seu comportamento por essas regras.</p>
+      <p>As placas são um exemplo simples de como normas coletivas podem limitar e orientar escolhas individuais. O objetivo não é dizer que uma placa “é” um fato social isoladamente, mas usar a situação para visualizar conceitos de <b>Émile Durkheim</b>, como regras exteriores ao indivíduo e formas coletivas de orientar a ação.</p>
+    </div>
+    <button class="primary" onclick="location.reload()">Jogar novamente ↻</button>
+  </div>
+</section>
+</main>
+
+<footer>Projeto educativo · HTML, CSS e JavaScript · pronto para GitHub Pages</footer>
+<script src="game.js"></script>
+</body>
+</html>
